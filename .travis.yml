@@ -1,0 +1,52 @@
+matrix:
+  include:
+  - language: bash
+    name: Compatibility Test (Default OS)
+    os: linux
+    arch: arm64-graviton2
+    script:
+    - "./demos/os-detect-full-example.sh"
+  - language: ruby
+    name: Github Linguist (rvm 2.7)
+    rvm: 2.7
+    before_install:
+    - git clone https://github.com/TravisToolbox/github-linguist
+    install:
+    - "./github-linguist/install.sh"
+    script:
+    - "./github-linguist/scan.sh"
+  - language: ruby
+    name: YAML Linting (rvm 2.7)
+    rvm: 2.7
+    before_install:
+    - git clone https://github.com/TravisToolbox/yaml-lint
+    install:
+    - "./yaml-lint/install.sh"
+    script:
+    - "./yaml-lint/scan.sh"
+  - language: bash
+    name: Shellcheck (Bash)
+    os: linux
+    arch: arm64-graviton2
+    before_install:
+    - git clone https://github.com/TravisToolbox/shellcheck
+    install:
+    - "./shellcheck/install.sh"
+    script:
+    - "./shellcheck/scan.sh"
+  - language: ruby
+    name: Link Checking (rvm 2.7)
+    rvm: 2.7
+    env:
+    - WHITELIST="https://img.shields.io"
+    - EXCLUDE_FILES="CHANGELOG.md"
+    before_install:
+    - git clone https://github.com/TravisToolbox/awesomebot
+    install:
+    - "./awesomebot/install.sh"
+    script:
+    - "./awesomebot/scan.sh"
+notifications:
+  email: false
+  slack:
+    secure: ZnqmlHlHxfOl8ZQuWTee4DK77NaX+QbMaWfOXnPYMl11HGcEtVGS2teuoIEthep3Xq1BComlqXnmlYOt5C+Ro4/VsbYTl8354pe6OtAkHq6oy6eJV+g9hl+XExmtTcZWzVi4frm5lDlcDiGLgHT0VEKMmiyFj4+oj6kwRcvanbstAnh7m9Hg9zwmgZA1ovwkUFq9yr4iAVQudIGLi3NwpBUgSOTxxsWgrjsPND6gHU/amHijinDFcWUQ88j8mGFttjKNu/ELlFhUuhPro5uLNbbKjd/ossBxOziUaOzTIfGBHF9uNOaMM85MbxJdzyydLAzJ7iG3by1nNopPYKj7MJC8rG5UXAM6gV/auQ8zpfvSvpb+8pCEwmY+8fKYoYMDtCnKYqi73szQmdLjXJBeKFjjqWbipaoGJGbBKayqzyoJJvmUgmTAfB0DueAhfC5WyOSNBk/bWPoXyh7la2jzOddpXr8uFPeSSvImRXZDlpY1YqMBpKbSgFYLwK86kN0mTJsTj3ylfdJUrDh6knljZ9KWyQEVOplOXDK3/jTKhBuo66/Ju6x4QNlxKvzJPF+YYIayMyCPW+fAPZxIp9UvcRUVWzygXym4FOUCnvd3mDOcht/42VIAT6/P1J+SrIijyIU64OqVrbOr+SExhK9DQ9UMiUoDctvvEiE9rqVA5F4=
