@@ -7,7 +7,9 @@ This changelog was automatically generated using [Caretaker](https://github.com/
 
 ### [Unreleased](https://github.com/DevelopersToolbox/os-detect/compare/v0.1.0...HEAD)
 
-- Update to add platform version and more supported OS examples [`[head]`](https://github.com/DevelopersToolbox/os-detect/commit/)
+- Add prereq check [`[head]`](https://github.com/DevelopersToolbox/os-detect/commit/)
+
+- Update to add platform version and more supported OS examples [`[328bcb3]`](https://github.com/DevelopersToolbox/os-detect/commit/328bcb366ca6d206dd84ca55f19da712cf456daa)
 
 - rebrand [`[d9ad615]`](https://github.com/DevelopersToolbox/os-detect/commit/d9ad61549a8118c06fa98d735a73af504c206192)
 

@@ -11,6 +11,39 @@
 shopt -s extglob
 
 # -------------------------------------------------------------------------------- #
+# Required commands                                                                #
+# -------------------------------------------------------------------------------- #
+# These commands MUST exist in order for the script to correctly run.              #
+# -------------------------------------------------------------------------------- #
+
+PREREQ_COMMANDS=( 'awk' )
+
+# -------------------------------------------------------------------------------- #
+# Check Prerequisites                                                              #
+# -------------------------------------------------------------------------------- #
+# Check to ensure that the prerequisite commmands exist.                           #
+# -------------------------------------------------------------------------------- #
+
+function check_prereqs()
+{
+    local error_count=0
+
+    for i in "${PREREQ_COMMANDS[@]}"
+    do
+        command=$(command -v "${i}" || true)
+        if [[ -z $command ]]; then
+            echo "Error: ${i} is not in your command path"
+            error_count=$((error_count+1))
+        fi
+    done
+
+    if [[ $error_count -gt 0 ]]; then
+        echo "Error: ${error_count} errors located - fix before re-running";
+        exit
+    fi
+}
+
+# -------------------------------------------------------------------------------- #
 # Clean String                                                                     #
 # -------------------------------------------------------------------------------- #
 # Clean the presented string and remove unwanted characters. [Order IS important!] #
@@ -199,8 +232,6 @@ function detect_release
                     fi
                 elif [[ -f /etc/redhat-release ]]; then
                     OSD_RELEASE=$(sed s/.*release\ // /etc/redhat-release | sed s/\ .*//)
-                elif [[ -f /etc/SuSE-release ]]; then
-                    OSD_RELEASE=$(grep '^VERSION' /etc/SuSE-release | awk -F= '{ print $2 }')
                 elif [[ -f /etc/os-release ]]; then
                     OSD_RELEASE=$(grep '^VERSION' /etc/os-release | grep -v 'VERSION_ID' | awk -F= '{ print $2 }')
                 fi
@@ -237,8 +268,6 @@ function detect_codename
                 fi
             elif [[ -f /etc/redhat-release ]]; then
                 OSD_CODENAME=$(sed s/.*\(// /etc/redhat-release | sed s/\)//)
-            elif [[ -f /etc/SuSE-release ]]; then
-                OSD_CODENAME=$(grep '^CODENAME' /etc/SuSE-release | awk -F= '{ print $2 }')
             fi
         fi
 
@@ -267,8 +296,6 @@ function detect_basedon
             OSD_BASEDON="debian"
         elif [[ -f /etc/redhat-release ]] &&  [[ -z "${OSD_BASEDON}" ]]; then
             OSD_BASEDON="redhat"
-        elif [[ -f /etc/SuSE-release ]] && [[ -z "${OSD_BASEDON}" ]]; then
-            OSD_BASEDON="suse"
         fi
 
         if [[ -z "${OSD_BASEDON}" ]]; then
@@ -298,6 +325,14 @@ function full_os_detect
     detect_codename
     detect_basedon
 }
+
+# -------------------------------------------------------------------------------- #
+# Check Prerequisites                                                              #
+# -------------------------------------------------------------------------------- #
+# Make sure we check everything we need is installed.                              #
+# -------------------------------------------------------------------------------- #
+
+check_prereqs
 
 # -------------------------------------------------------------------------------- #
 # End of Script                                                                    #

@@ -261,6 +261,21 @@ KERNEL:           5.10.76-linuxkit
 ARCH:             x86_64
 ```
 
+### Scientific Linux
+
+```shell
+OS:               Linux
+DISTRIBUTION:     scientific
+NAME:             Scientific Linux
+CODENAME:         Nitrogen
+RELEASE:          7.9
+VERSION:          7.9
+PLATFORM VERSION: unknown
+BASEDON:          rhel centos fedora
+KERNEL:           5.10.76-linuxkit
+ARCH:             x86_64
+```
+
 ### Ubuntu
 
 ```shell
