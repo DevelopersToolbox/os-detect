@@ -7,7 +7,9 @@ This changelog was automatically generated using [Caretaker](https://github.com/
 
 ### [Unreleased](https://github.com/DevelopersToolbox/os-detect/compare/v0.1.0...HEAD)
 
-- rebrand [`[head]`](https://github.com/DevelopersToolbox/os-detect/commit/)
+- Update to add platform version and more supported OS examples [`[head]`](https://github.com/DevelopersToolbox/os-detect/commit/)
+
+- rebrand [`[d9ad615]`](https://github.com/DevelopersToolbox/os-detect/commit/d9ad61549a8118c06fa98d735a73af504c206192)
 
 - Update travis slack integration due to new slack organisation [`[0e52d2c]`](https://github.com/DevelopersToolbox/os-detect/commit/0e52d2c6c334d22ddc844b199d7b62d7298257a6)
 

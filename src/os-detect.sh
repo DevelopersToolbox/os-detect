@@ -153,6 +153,28 @@ function  detect_version
 }
 
 # -------------------------------------------------------------------------------- #
+# Platform Version                                                                 #
+# -------------------------------------------------------------------------------- #
+# Get the platform version, this is mostly for RedHat based OSs.                   #
+# -------------------------------------------------------------------------------- #
+
+function detect_platform_version
+{
+    if [[ -z $OSD_PLATFORM_VERSION ]]; then
+        if [[ -f /etc/os-release ]]; then
+            OSD_PLATFORM_VERSION=$(grep '^PLATFORM_ID' /etc/os-release | awk -F=  '{ print $2 }' | awk -F:  '{ print $2 }')
+            OSD_PLATFORM_VERSION=${OSD_PLATFORM_VERSION/el/el-}
+        fi
+
+        if [[ -z "${OSD_BASEDON}" ]]; then
+            OSD_PLATFORM_VERSION="unknown"
+        fi
+        OSD_PLATFORM_VERSION=$(clean_string "${OSD_PLATFORM_VERSION}")
+        readonly OSD_PLATFORM_VERSION
+    fi
+}
+
+# -------------------------------------------------------------------------------- #
 # Release                                                                          #
 # -------------------------------------------------------------------------------- #
 # Attempt to detect the release version.                                           #
@@ -271,6 +293,7 @@ function full_os_detect
     detect_distribution
     detect_name
     detect_version
+    detect_platform_version
     detect_release
     detect_codename
     detect_basedon

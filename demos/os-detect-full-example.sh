@@ -50,15 +50,16 @@ full_os_detect
 # directly instead of the full detection then not all variables will exist.        #
 # -------------------------------------------------------------------------------- #
 
-echo "OS:           $OSD_OS"
-echo "DISTRIBUTION: $OSD_DISTRIBUTION"
-echo "NAME:         $OSD_NAME"
-echo "CODENAME:     $OSD_CODENAME"
-echo "RELEASE:      $OSD_RELEASE"
-echo "VERSION:      $OSD_VERSION"
-echo "BASEDON:      $OSD_BASEDON"
-echo "KERNEL:       $OSD_KERNEL"
-echo "ARCH:         $OSD_ARCH"
+echo "OS:               $OSD_OS"
+echo "DISTRIBUTION:     $OSD_DISTRIBUTION"
+echo "NAME:             $OSD_NAME"
+echo "CODENAME:         $OSD_CODENAME"
+echo "RELEASE:          $OSD_RELEASE"
+echo "VERSION:          $OSD_VERSION"
+echo "PLATFORM VERSION: $OSD_PLATFORM_VERSION"
+echo "BASEDON:          $OSD_BASEDON"
+echo "KERNEL:           $OSD_KERNEL"
+echo "ARCH:             $OSD_ARCH"
 
 # -------------------------------------------------------------------------------- #
 # End of Script                                                                    #

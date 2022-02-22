@@ -57,6 +57,7 @@ echo "NAME: $OSD_NAME"
 echo "CODENAME: $OSD_CODENAME"
 echo "RELEASE: $OSD_RELEASE"
 echo "VERSION: $OSD_VERSION"
+echo "PLATFORM_VERSION: $OSD_PLATFORM_VERSION"
 echo "BASEDON: $OSD_BASEDON"
 echo "KERNEL: $OSD_KERNEL"
 echo "ARCH: $OSD_ARCH"
@@ -78,13 +79,14 @@ echo "VERSION: $OSD_VERSION"
 ## Functions
 
 The following functions exist:
-        
+
 * detect_os
 * detect_kernel
 * detect_architecture
 * detect_distribution
 * detect_name
 * detect_version
+* detect_platform_version
 * detect_release
 * detect_codename
 * detect_basedon
@@ -101,6 +103,7 @@ The following environment variables are set:
 * OSD_CODENAME
 * OSD_RELEASE
 * OSD_VERSION
+* OSD_PLATFORM_VERSION
 * OSD_BASEDON
 * OSD_KERNEL
 * OSD_ARCH
@@ -108,86 +111,171 @@ The following environment variables are set:
 <a name="example-output"></a>
 ## Examples of usage by OS
 
-### Debian
+### Alma Linux
 
 ```shell
-OS: Linux
-DISTRIBUTION: debian
-NAME: Debian GNU/Linux
-CODENAME: stretch
-RELEASE: 9.2
-VERSION: 9
-BASEDON: debian
-KERNEL: 4.9.49-moby
-ARCH: x86_64
+OS:               Linux
+DISTRIBUTION:     almalinux
+NAME:             AlmaLinux
+CODENAME:         Arctic Sphynx
+RELEASE:          8.5
+VERSION:          8.5
+PLATFORM VERSION: el-8
+BASEDON:          rhel centos fedora
+KERNEL:           5.10.76-linuxkit
+ARCH:             x86_64
 ```
 
-### Ubuntu
+### Alpine
 
 ```shell
-OS: Linux
-DISTRIBUTION: ubuntu
-NAME: Ubuntu
-CODENAME: Xenial Xerus
-RELEASE: 16.04
-VERSION: 16.04
-BASEDON: debian
-KERNEL: 4.9.49-moby
-ARCH: x86_64
-```
-
-### Mac OS X
-
-```shell
-OS: Mac OS
-DISTRIBUTION: unknown
-NAME: Mac OS X
-CODENAME: unknown
-RELEASE: 10.13.1
-VERSION: unknown
-BASEDON: unknown
-KERNEL: 17.2.0
-ARCH: x86_64
-```
-
-### Centos
-
-```shell
-OS: Linux
-DISTRIBUTION: centos
-NAME: CentOS Linux
-CODENAME: Core
-RELEASE: 7.4.1708
-VERSION: 7
-BASEDON: rhel fedora
-KERNEL: 4.9.49-moby
-ARCH: x86_64
-```
-
-### Suse
-
-```shell
-OS: Linux
-DISTRIBUTION: opensuse
-NAME: openSUSE Leap
-CODENAME: Malachite
-RELEASE: 42.3
-VERSION: 42.3
-BASEDON: suse
-KERNEL: 4.9.49-moby
-ARCH: x86_64
+OS:               Linux
+DISTRIBUTION:     alpine
+NAME:             Alpine Linux
+CODENAME:         unknown
+RELEASE:          unknown
+VERSION:          3.14.2
+PLATFORM VERSION: unknown
+BASEDON:          unknown
+KERNEL:           5.10.76-linuxkit
+ARCH:             x86_64
 ```
 
 ### Amazon Linux
 
 ```shell
-OS: Linux
-DISTRIBUTION: amzn
-NAME: Amazon Linux AMI
-CODENAME: unknown
-RELEASE: 2017.09
-VERSION: 2017.09
-BASEDON: rhel fedora
-KERNEL: 4.9.49-moby
-ARCH: x86_64
+OS:               Linux
+DISTRIBUTION:     amzn
+NAME:             Amazon Linux
+CODENAME:         unknown
+RELEASE:          2
+VERSION:          2
+PLATFORM VERSION: unknown
+BASEDON:          centos rhel fedora
+KERNEL:           5.10.76-linuxkit
+ARCH:             x86_64
 ```
+
+### Arch Linux
+
+```shell
+OS:               Linux
+DISTRIBUTION:     arch
+NAME:             Arch Linux
+CODENAME:         unknown
+RELEASE:          unknown
+VERSION:          unknown
+PLATFORM VERSION: unknown
+BASEDON:          unknown
+KERNEL:           5.10.76-linuxkit
+ARCH:             x86_64
+```
+
+### Centos
+
+```shell
+OS:               Linux
+DISTRIBUTION:     centos
+NAME:             CentOS Linux
+CODENAME:         Core
+RELEASE:          7.9.2009
+VERSION:          7
+PLATFORM VERSION: unknown
+BASEDON:          rhel fedora
+KERNEL:           5.10.76-linuxkit
+ARCH:             x86_64
+```
+
+### Debian
+
+```shell
+OS:               Linux
+DISTRIBUTION:     debian
+NAME:             Debian GNU/Linux
+CODENAME:         bullseye
+RELEASE:          11.1
+VERSION:          11
+PLATFORM VERSION: unknown
+BASEDON:          debian
+KERNEL:           5.10.76-linuxkit
+ARCH:             x86_64
+```
+
+### Mac OS
+
+```shell
+OS:               Mac OS
+DISTRIBUTION:     unknown
+NAME:             macOS
+CODENAME:         unknown
+RELEASE:          12.2.1
+VERSION:          unknown
+PLATFORM VERSION: unknown
+BASEDON:          unknown
+KERNEL:           21.3.0
+ARCH:             x86_64
+```
+
+### Oracle Linux
+
+```shell
+OS:               Linux
+DISTRIBUTION:     ol
+NAME:             Oracle Linux Server
+CODENAME:         Ootpa
+RELEASE:          8.5
+VERSION:          8.5
+PLATFORM VERSION: el-8
+BASEDON:          fedora
+KERNEL:           5.10.76-linuxkit
+ARCH:             x86_64
+```
+
+### Photon Linux
+
+```shell
+OS:               Linux
+DISTRIBUTION:     photon
+NAME:             VMware Photon OS
+CODENAME:         unknown
+RELEASE:          4.0
+VERSION:          4.0
+PLATFORM VERSION: unknown
+BASEDON:          unknown
+KERNEL:           5.10.76-linuxkit
+ARCH:             x86_64
+```
+
+### Rocky Linux
+
+```shell
+OS:               Linux
+DISTRIBUTION:     rocky
+NAME:             Rocky Linux
+CODENAME:         Green Obsidian
+RELEASE:          8.5
+VERSION:          8.5
+PLATFORM VERSION: el-8
+BASEDON:          rhel centos fedora
+KERNEL:           5.10.76-linuxkit
+ARCH:             x86_64
+```
+
+### Ubuntu
+
+```shell
+OS:               Linux
+DISTRIBUTION:     ubuntu
+NAME:             Ubuntu
+CODENAME:         focal
+RELEASE:          20.04
+VERSION:          20.04
+PLATFORM VERSION: unknown
+BASEDON:          debian
+KERNEL:           5.10.76-linuxkit
+ARCH:             x86_64
+```
+
+
+
+
